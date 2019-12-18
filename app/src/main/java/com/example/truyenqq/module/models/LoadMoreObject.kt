@@ -1,4 +1,6 @@
 package com.example.truyenqq.module.models
 
-class LoadMoreObject {
-}
+data class LoadMoreObject(
+    var start : Int,
+    var end : Int
+)
