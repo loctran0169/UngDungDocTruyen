@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">TruyenQQ</string>
+    <string name="lbHome">Trang Chủ</string>
+    <string name="lbCategory">Thể Loại</string>
+    <string name="lbBookShelf">Tủ Sách</string>
+    <string name="lbSearch">Tìm Kiếm</string>
+    <string name="lbUser">Cá Nhân</string>
+    <string name="sex">Giới tính:</string>
+    <string name="lbMale">Nam</string>
+    <string name="lbFemale">Nữ</string>
+    <string name="lbOldPassWord">Mật khẩu hiện tại</string>
+    <string name="lbNewPassWord">Mật khẩu mới</string>
+    <string name="lbChangePassword">Thay đổi mật khẩu</string>
+    <string name="lbNewPassWordConfirm">Nhập lại mật khẩu mới</string>
+    <string name="lbSaveChange">LƯU THAY ĐỔI</string>
+    <string name="lbLoginRequired">Vui lòng đăng nhập để sử dụng chức năng này</string>
+    <string name="lbLogout">Đăng xuất</string>
+    <string name="lbInfor">Thông tin cá nhân</string>
+    <string name="lbNotif">Thông Báo</string>
+    <string name="lbType">Nhập tên bạn muốn tìm</string>
+    <string name="lbRank">Xếp Hạng</string>
+
+    <string name="lbInfoCategory">Đối tượng hướng tới của thể loại này là phái nam. Nội dung của những bộ manga này
+        thường liên quan đến đánh nhau và/hoặc bạo lực (ở mức bình thường, không thái quá)
+    </string>
+
 </resources>
