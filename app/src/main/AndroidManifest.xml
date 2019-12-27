@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.truyenqq">
 
     <application
@@ -8,7 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +18,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".module.services.ServiceDownload"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.activities.main.MainActivity"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity android:name=".ui.activities.activitydownload.ActivityDownload" />
+        <activity android:name=".ui.activities.activitychapdownloaded.ActivityChapDownload" />
+        <activity android:name=".ui.activities.changepassword.ActivityChangePassWord" />
+        <activity android:name=".ui.activities.newactivity.ActivityNewUpdate" />
+        <activity android:name=".ui.activities.personal.ActivityPersonalInformation"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".ui.activities.rank.ActivityRank" />
+        <activity android:name=".ui.activities.reading.ActivityReading"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".ui.activities.readingdownload.ActivityReadingDownload" />
+        <activity
+            android:name=".ui.activities.story.ActivityStory"
+            android:theme="@style/AppTheme.Story" />
+        <activity android:name=".ui.activities.ActivityUser" />
+        <activity android:name=".ui.activities.WaitingActivity" />
+
     </application>
+
 
 </manifest>

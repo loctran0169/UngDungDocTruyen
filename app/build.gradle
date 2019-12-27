@@ -94,4 +94,5 @@ dependencies {
 
     //slider+indicate
     implementation 'com.github.smarteist:autoimageslider:1.3.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01'
 }

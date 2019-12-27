@@ -1,2 +1,177 @@
 package com.example.truyenqq.module.services
 
+import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.Service
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.media.RingtoneManager
+import android.os.AsyncTask
+import android.os.Build
+import android.os.IBinder
+import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import com.example.truyenqq.R
+import com.example.truyenqq.module.local.ImageChap
+import com.example.truyenqq.module.local.ImageChapRepository
+import com.example.truyenqq.module.local.ImageStorageManager
+import com.example.truyenqq.module.local.QueueDownload
+import com.example.truyenqq.module.networks.ApiManager
+import com.example.truyenqq.ui.activities.main.MainActivity
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import java.io.IOException
+import java.net.URL
+
+class ServiceDownload : Service() {
+
+    private val compo by lazy { CompositeDisposable() }
+    private val apiManager: ApiManager by lazy { ApiManager() }
+    var listQueue = mutableListOf<QueueDownload>()
+    val repo: ImageChapRepository by lazy {
+        ImageChapRepository(application)
+    }
+    lateinit var bookId: String
+    lateinit var context: Context
+    var number = 0
+    var require = 0
+    override fun onBind(intent: Intent): IBinder? {
+        return null
+    }
+
+    @SuppressLint("CheckResult")
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        bookId = intent!!.getStringExtra("bookId")!!
+        require = intent.getIntExtra("require",0)
+        context = applicationContext
+        AsyncTaskLoadQueue().execute()
+        return START_STICKY
+    }
+
+    fun showNotification(message: String) {
+        val intent = Intent(this, MainActivity::class.java)
+        val pending = PendingIntent.getActivity(
+            this,
+            0,
+            intent,
+            PendingIntent.FLAG_ONE_SHOT
+        )
+        val channelId = "channel_id"
+        val defaultRingtone = RingtoneManager
+            .getActualDefaultRingtoneUri(
+                this,
+                RingtoneManager.TYPE_RINGTONE
+            )
+        val notificationBuilder = NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSound(defaultRingtone)
+            .setContentIntent(pending)
+            .setContentTitle("Đang tải truyện")
+            .setContentText(message)
+            .setColor(Color.parseColor("#ffff7043"))
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val chanel = NotificationChannel(
+                channelId,
+                "TruyenQQ",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager.createNotificationChannel(chanel)
+        }
+        notificationManager.notify(
+            1,
+            notificationBuilder.build()
+        )
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    inner class AsyncTaskLoad internal constructor(val context: Context, val chap: String, val list: List<String>) :
+        AsyncTask<Void, Void, Void>() {
+        override fun doInBackground(vararg p0: Void?): Void? {
+            if (repo.findChapId(bookId, chap) == "0") {
+                list.forEachIndexed { i, it ->
+                    showNotification("$number/$require\nĐang tải chap $chap($i/${list.size})")
+                    val bitmap = getBitmapFromURL(it)
+                    if (bitmap != null) {
+                        try {
+                            ImageStorageManager.saveToInternalStorage(context, bitmap, "$bookId+$chap+$i")
+                            repo.insert(
+                                listOf(
+                                    ImageChap(
+                                        bookId = bookId,
+                                        chapId = chap,
+                                        position = i,
+                                        name = "$bookId+$chap+$i"
+                                    )
+                                )
+                            )
+                        } catch (ex: Exception) {
+
+                        }
+                    }
+                }
+            }
+            return null
+        }
+
+        override fun onPostExecute(result: Void?) {
+            super.onPostExecute(result)
+            repo.deleteQueue(bookId, chap)
+            number++
+            if(number==require) {
+                showNotification("Tải xuống hoàn thành")
+                Toast.makeText(context,"Tải xuống hoàn thành", Toast.LENGTH_SHORT).show()
+                context.stopService(Intent(application,ServiceDownload::class.java))
+            }
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    inner class AsyncTaskLoadQueue : AsyncTask<Void, Void, Void>() {
+        override fun doInBackground(vararg p0: Void?): Void? {
+            listQueue.clear()
+            listQueue.addAll(repo.getDataQueueById(bookId)!!)
+            return null
+        }
+
+        @SuppressLint("CheckResult")
+        override fun onPostExecute(result: Void?) {
+            super.onPostExecute(result)
+            if (!listQueue.isNullOrEmpty()) {
+                require=listQueue.size
+                for (i: QueueDownload in listQueue) {
+                    apiManager.getListImage(bookId, i.chapId)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ story ->
+                            if (story.list != null) {
+                                AsyncTaskLoad(context, story.order, story.list!!).execute()
+                            }
+                        }, {
+
+                        })
+                }
+            }
+        }
+    }
+
+    fun getBitmapFromURL(_url: String): Bitmap? {
+        return try {
+            val url = URL(_url)
+            val connection = url.openConnection()
+            connection.doInput = true
+            connection.connect()
+            val input = connection.getInputStream()
+            val myBitmap = BitmapFactory.decodeStream(input)
+            myBitmap
+        } catch (ex: IOException) {
+            null
+        }
+    }
+}

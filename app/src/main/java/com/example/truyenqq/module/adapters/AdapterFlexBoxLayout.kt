@@ -1,2 +1,31 @@
 package com.example.truyenqq.module.adapters
 
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.truyenqq.R
+import com.example.truyenqq.module.models.Category
+
+class AdapterFlexBoxLayout(val context: Context, val list: List<Category>) :
+    RecyclerView.Adapter<AdapterFlexBoxLayout.Item>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterFlexBoxLayout.Item {
+
+        val view: View = LayoutInflater.from(context).inflate(R.layout.item_category_horizontal, parent, false)
+        return Item(view)
+    }
+
+    override fun getItemCount(): Int {
+        return list.size
+    }
+
+    override fun onBindViewHolder(holder: AdapterFlexBoxLayout.Item, position: Int) {
+        holder.itemNameCategory.text = list[position].name
+    }
+
+    inner class Item(view: View) : RecyclerView.ViewHolder(view) {
+            var itemNameCategory = view.findViewById<TextView>(R.id.tvCategoryHorizontal)
+    }
+}

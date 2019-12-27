@@ -24,4 +24,31 @@
         thường liên quan đến đánh nhau và/hoặc bạo lực (ở mức bình thường, không thái quá)
     </string>
 
+    <string name="lbLoginText">Vui lòng đăng nhập tài khoản của bạn để tiếp tục sử dụng dịch vụ</string>
+    <string name="lbEmail"> Nhập Email</string>
+    <string name="lbPass">Nhập mật khẩu</string>
+    <string name="lbLogin">Đăng nhập</string>
+    <string name="lbForgotPass">Quên mật khẩu</string>
+    <string name="lbRegister">Đăng kí tài khoản mới</string>
+    <string name="lbKind">Thể loại</string>
+    <string name="lbCalendar">Lịch</string>
+    <string name="lbNewStory">Truyện mới</string>
+    <string name="lbDiscuss">Thảo luận</string>
+    <string name="lbNewStoryUpdate">Truyện mới cập nhật</string>
+    <string name="lbMoreItem">Xem thêm</string>
+    <string name="lbStoryMale">Truyện con trai</string>
+    <string name="lbStoryFemale">Truyện con gái</string>
+    <string name="lbRule">Truyện được lấy từ TruyenQQ.com. Phần mềm chỉ lưu hành nội bộ và không chịu trách nhiệm bàn         quyền sàn phẩm.</string>
+    <string name="lbButtonForgotPassWord">Lấy lại mật khẩu</string>
+    <string name="lbForgotText">Vui lòng nhập email để tiếp tục</string>
+    <string name="lbRegisterRequire">Vui lòng điền đủ thông tin</string>
+    <string name="lbPassword">Mật khẩu</string>
+    <string name="lbRegisterSend">Đăng ký</string>
+    <string name="lbDelete">Xóa</string>
+    <string name="lbDownloadName">Chọn chương</string>
+    <string name="lbSeteclAll">Chọn tất cả</string>
+    <string name="lbDownload">Tải xuống</string>
+    <string name="lbWriteAny">Viết gì đó</string>
+    <string name="lbReadNow">Đọc ngay</string>
+    <string name="lbHistory">Lịch sử</string>
 </resources>
