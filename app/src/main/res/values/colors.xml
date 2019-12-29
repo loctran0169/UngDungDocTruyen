@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">@android:color/transparent</color>
-    <color name="colorPrimaryDark">#03CEBA</color>
-    <color name="colorAccent">#EB4D86</color>
-    <color name="colorMain">#8BC34A</color>
-    <color name="colorNameStory_drark">#857672</color>
-    <color name="colorNameStory_light">#2196F3</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorMain">#f18121</color>
+    <color name="colorNameStory_drark">#F5774E</color>
+    <color name="colorNameStory_light">#ffff7043</color>
     <color name="colorIcon">#747373</color>
+
 </resources>

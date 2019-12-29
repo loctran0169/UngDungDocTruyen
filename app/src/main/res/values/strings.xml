@@ -41,7 +41,7 @@
     <string name="lbRule">Truyện được lấy từ TruyenQQ.com. Phần mềm chỉ lưu hành nội bộ và không chịu trách nhiệm bàn         quyền sàn phẩm.</string>
     <string name="lbButtonForgotPassWord">Lấy lại mật khẩu</string>
     <string name="lbForgotText">Vui lòng nhập email để tiếp tục</string>
-    <string name="lbRegisterRequire">Vui lòng điền đủ thông tin</string>
+    <string name="lbRegisterRequire">Vui lòng điền đủ thông tin để đăng kí</string>
     <string name="lbPassword">Mật khẩu</string>
     <string name="lbRegisterSend">Đăng ký</string>
     <string name="lbDelete">Xóa</string>
