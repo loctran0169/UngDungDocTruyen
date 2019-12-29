@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/navHome"
+        android:icon="@drawable/ic_home"
+        android:contentDescription="@string/lbHome"
+        android:title="@string/lbHome"/>
+    <item android:id="@+id/navCategory"
+        android:contentDescription="@string/lbCategory"
+        android:icon="@drawable/ic_list"
+        android:title="@string/lbCategory"/>
+    <item android:id="@+id/navSearch"
+        android:contentDescription="@string/lbSearch"
+        android:icon="@drawable/ic_search"
+        android:title="@string/lbSearch"/>
+    <item android:id="@+id/navBookcase"
+        android:contentDescription="@string/lbBookShelf"
+        android:icon="@drawable/ic_shelf"
+        android:title="@string/lbBookShelf"/>
+    <item android:id="@+id/navUser"
+        android:contentDescription="@string/lbUser"
+        android:icon="@drawable/ic_user"
+        android:title="@string/lbUser"/>
+</menu>
