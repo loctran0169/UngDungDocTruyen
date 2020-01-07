@@ -1,4 +1,4 @@
-# UngDungDocTruyen
+# UngDungDocTruyen ![TRUYENQQ](https://truyenqq.com/template/frontend/images/logo.png)
 This app is developed for everyone who need read comics to save their time. Some highlights feature:
 - Search.
 - List comics
@@ -22,4 +22,4 @@ Please make sure to update tests as appropriate.
 ## License
 ![UIT](https://www.uit.edu.vn/sites/vi/files/banner.png)
 ![SE UIT](http://cnpm.uit.edu.vn/templates/mimety/images/logo.png)
-![TRUYENQQ](https://truyenqq.com/template/frontend/images/logo.png)
+
