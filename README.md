@@ -5,7 +5,7 @@ This app is developed for everyone who need read comics to save their time. Some
 - List comics
 - Login/ Logout
 - Category
-- Bookself
+- Bookshelf
 - Comment, Like, Subscribe
 - ....
 
