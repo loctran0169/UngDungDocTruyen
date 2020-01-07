@@ -13,7 +13,7 @@ This app is developed for everyone who need read comics to save their time. Some
 - Kotlin
 
 ## Library
-    -Load Image - Glide
+     -Load Image - Glide
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
@@ -38,7 +38,7 @@ This app is developed for everyone who need read comics to save their time. Some
     implementation "androidx.room:room-rxjava2:2.2.2"
     kapt "androidx.room:room-compiler:2.2.2"
 
-   - Slide Banner
+     - Slide Banner
     implementation 'com.github.smarteist:autoimageslider:1.3.2'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01'
 
