@@ -12,6 +12,37 @@ This app is developed for everyone who need read comics to save their time. Some
 ## Technology
 - Kotlin
 
+## Library
+    -Load Image - Glide
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+    - Handle Json string - factory
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    - Handle API 
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+
+    -Shape Image
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+
+
+    - Collapsingtoolbar layout
+    implementation 'net.opacapp:multiline-collapsingtoolbar:27.1.1'
+
+    implementation 'com.ms-square:expandableTextView:0.1.4'
+
+    - SQLite - Room database
+    implementation "androidx.room:room-rxjava2:2.2.2"
+    kapt "androidx.room:room-compiler:2.2.2"
+
+   - Slide banner
+    implementation 'com.github.smarteist:autoimageslider:1.3.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01'
+
+
 ## Usage
 Run this app and experience all features
 
