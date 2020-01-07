@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../TruyenQQ.iml" filepath="$PROJECT_DIR$/../TruyenQQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../UngDungDocTruyen-TruyenQQ.iml" filepath="$PROJECT_DIR$/../UngDungDocTruyen-TruyenQQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UngDungDocTruyen-app.iml" filepath="$PROJECT_DIR$/UngDungDocTruyen-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
     </modules>
   </component>
