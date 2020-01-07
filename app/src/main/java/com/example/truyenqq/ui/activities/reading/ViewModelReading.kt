@@ -59,6 +59,7 @@ class ViewModelReading(val bookId: String, var chap: String, val context: Contex
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     story.value = it
+                    setHistory()
                 }, {
 
                 })

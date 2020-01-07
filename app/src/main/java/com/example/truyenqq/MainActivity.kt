@@ -1,13 +1,13 @@
 package com.example.truyenqq
 
 import android.Manifest
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             .get(ViewModelHome::class.java)
     }
     var flag = false
+    var backTime = 0L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -79,16 +80,11 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navUser -> {
                     if (share.getShare.getString(USER_ID, null) == null) {
-                        //viewModel.isShow.value = it.itemId
                         flag = true
                         val intend1 = Intent(this, ActivityUser::class.java)
                         startActivity(intend1)
                     } else {
                         showFragment(FragmentUser())
-//                        supportFragmentManager.beginTransaction()
-//                            .add(R.id.frmMain, FragmentUser())
-//                            .addToBackStack("user")
-//                            .commit()
                         viewModel.isShow.value = it.itemId
                     }
                     true
@@ -114,6 +110,15 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    override fun onBackPressed() {
+        if (System.currentTimeMillis() - backTime > 2000) {
+            Toast.makeText(this, "Ấn lần nữa để thoát", Toast.LENGTH_SHORT).show()
+        } else {
+            super.onBackPressed()
+        }
+        backTime = System.currentTimeMillis()
     }
 
     override fun onRestart() {
@@ -148,12 +153,6 @@ class MainActivity : AppCompatActivity() {
     private fun showFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frmMain, fragment)
-            .commit()
-    }
-
-    private fun addFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.frmMain, fragment)
             .commit()
     }
 
@@ -205,13 +204,13 @@ class MainActivity : AppCompatActivity() {
     fun logOut(view: View) {
         val dialog = AlertDialog.Builder(this)
         dialog.setTitle("Đăng xuất ?")
-            .setNegativeButton("Có"){_,_->
+            .setNegativeButton("Có") { _, _ ->
                 val share = MysharedPreferences(this)
                 share.removeAll()
                 showFragment(FragmentHome())
                 viewModel.isShow.value = R.id.navHome
             }
-            .setPositiveButton("Không"){_,_->
+            .setPositiveButton("Không") { _, _ ->
 
             }
         val display = dialog.create()

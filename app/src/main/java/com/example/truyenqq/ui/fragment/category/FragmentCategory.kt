@@ -25,7 +25,7 @@ class FragmentCategory : Fragment() {
             .get(ViewModelHome::class.java)
     }
     private val adapterCategory: AdapterCategory by lazy {
-        AdapterCategory(activity!!, mutableListOf())
+        AdapterCategory(this@FragmentCategory, mutableListOf())
     }
     var list: List<Category> = emptyList()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
@@ -13,10 +14,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.truyenqq.R
 import com.example.truyenqq.module.models.Category
 import com.example.truyenqq.ui.activities.newactivity.ActivityNewUpdate
+import com.example.truyenqq.ui.fragment.category.FragmentCategory
 
 
 class AdapterCategory(
-    val context: Context,
+    val context: FragmentCategory,
     var list: MutableList<Category>
 ) : RecyclerView.Adapter<AdapterCategory.BaseItem>(), Filterable {
 
@@ -27,7 +29,7 @@ class AdapterCategory(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseItem {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.item_category, parent, false)
+        val view: View = LayoutInflater.from(context.context).inflate(R.layout.item_category, parent, false)
         return BaseItem(view)
     }
 
@@ -39,7 +41,7 @@ class AdapterCategory(
         val p0 = list[position]
         holder.name.text = p0.name
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, ActivityNewUpdate::class.java)
+            val intent = Intent(context.context, ActivityNewUpdate::class.java)
             val bundle = Bundle()
             bundle.putString("name", "Truyện ${p0.name}")
             bundle.putString("category", p0.id)
@@ -48,8 +50,9 @@ class AdapterCategory(
             context.startActivity(intent)
         }
         holder.itemView.setOnLongClickListener {
-            var dialog = androidx.appcompat.app.AlertDialog.Builder(context)
-            val view: View = LayoutInflater.from(context).inflate(R.layout.item_category_longclick, null)
+            hideKeyBoard(context)
+            var dialog = androidx.appcompat.app.AlertDialog.Builder(context.context!!)
+            val view: View = LayoutInflater.from(context.context!!).inflate(R.layout.item_category_longclick, null)
             val _info = view.findViewById<TextView>(R.id.tvCategoryInfo)
             _info.text = p0.info
             dialog.setView(view)
@@ -58,6 +61,11 @@ class AdapterCategory(
             dislay.show()
             true
         }
+    }
+
+    fun hideKeyBoard(context: FragmentCategory) {
+        val imm = context.context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+        imm?.hideSoftInputFromWindow(context.activity?.currentFocus?.windowToken, 0)
     }
 
     fun updateData(items: MutableList<Category>) {
