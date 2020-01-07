@@ -10,7 +10,6 @@ class ImageChapRepository(val application: Application) {
     private val ImageChapDAO: ImageChapDAO? = AppDataBase.get(application)?.ImageChapDAO()
 
     fun insert(imageChap: List<ImageChap>) {
-        //AsyncTaskProcessInsert(ImageChapDAO).execute(*imageChap.toTypedArray())
         ImageChapDAO?.insertImage(*(imageChap.toTypedArray()))
     }
 
