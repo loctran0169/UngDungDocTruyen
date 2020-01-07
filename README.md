@@ -17,7 +17,7 @@ This app is developed for everyone who need read comics to save their time. Some
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
-    - Handle Json string - factory
+    - Handle Json String - factory
     implementation 'com.google.code.gson:gson:2.8.6'
 
     - Handle API 
@@ -29,16 +29,16 @@ This app is developed for everyone who need read comics to save their time. Some
     implementation 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
 
 
-    - Collapsingtoolbar layout
+    - Collapsingtoolbar Layout
     implementation 'net.opacapp:multiline-collapsingtoolbar:27.1.1'
 
     implementation 'com.ms-square:expandableTextView:0.1.4'
 
-    - SQLite - Room database
+    - SQLite - Room Database
     implementation "androidx.room:room-rxjava2:2.2.2"
     kapt "androidx.room:room-compiler:2.2.2"
 
-   - Slide banner
+   - Slide Banner
     implementation 'com.github.smarteist:autoimageslider:1.3.2'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01'
 
