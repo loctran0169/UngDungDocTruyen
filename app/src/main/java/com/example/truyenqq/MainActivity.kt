@@ -1,6 +1,7 @@
 package com.example.truyenqq
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -8,6 +9,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -95,15 +97,6 @@ class MainActivity : AppCompatActivity() {
                 else -> true
             }
         }
-        //FirebaseInstanceId.getInstance().instanceId
-        //            .addOnCompleteListener(OnCompleteListener { task ->
-        //                if (!task.isSuccessful) {
-        //                    Log.w("###", "getInstanceId failed", task.exception)
-        //                    return@OnCompleteListener
-        //                }
-        //                // Get new Instance ID token
-        //                val token = task.result?.token
-        //            })
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val permission = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
             requestPermissions(permission, 101)
@@ -210,10 +203,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun logOut(view: View) {
-        val share = MysharedPreferences(this)
-        share.removeAll()
-        showFragment(FragmentHome())
-        viewModel.isShow.value = R.id.navHome
+        val dialog = AlertDialog.Builder(this)
+        dialog.setTitle("Đăng xuất ?")
+            .setNegativeButton("Có"){_,_->
+                val share = MysharedPreferences(this)
+                share.removeAll()
+                showFragment(FragmentHome())
+                viewModel.isShow.value = R.id.navHome
+            }
+            .setPositiveButton("Không"){_,_->
+
+            }
+        val display = dialog.create()
+        display.show()
     }
 
     fun changePassWord(view: View) {
