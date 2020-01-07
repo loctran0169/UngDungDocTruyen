@@ -84,7 +84,6 @@
                 android:text="@{viewModel.email}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPasswordRegister"
             android:layout_width="0dp"
@@ -103,7 +102,6 @@
                 android:hint="@string/lbPassword"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <Button
             android:id="@+id/btnRegisterSend"

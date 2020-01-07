@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,11 +33,13 @@
         <activity android:name=".ui.activities.activitychapdownloaded.ActivityChapDownload" />
         <activity android:name=".ui.activities.changepassword.ActivityChangePassWord" />
         <activity android:name=".ui.activities.newactivity.ActivityNewUpdate" />
-        <activity android:name=".ui.activities.personal.ActivityPersonalInformation"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.activities.personal.ActivityPersonalInformation"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.activities.rank.ActivityRank" />
-        <activity android:name=".ui.activities.reading.ActivityReading"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.activities.reading.ActivityReading"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.activities.readingdownload.ActivityReadingDownload" />
         <activity
             android:name=".ui.activities.story.ActivityStory"
@@ -45,6 +48,4 @@
         <activity android:name=".ui.activities.WaitingActivity" />
 
     </application>
-
-
 </manifest>
