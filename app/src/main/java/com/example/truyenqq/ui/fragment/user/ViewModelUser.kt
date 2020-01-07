@@ -24,9 +24,9 @@ class ViewModelUser : ViewModel() {
         email.value = tx.toString()
     }
 
-    fun sendForgotPassword(): LiveData<ForgotPassword> {
+    fun sendForgotPassword(emailFG : String): LiveData<ForgotPassword> {
         compo.add(
-            apiManager.sendForgotPassword(email.value!!)
+            apiManager.sendForgotPassword(emailFG)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

@@ -18,11 +18,10 @@
         <LinearLayout
             android:id="@+id/groupInfo"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:background="#56ccf2"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/lbText1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="0dp">
@@ -51,19 +50,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/lbText1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="15dp"
-            android:gravity="center"
-            android:text="@string/lbRegisterRequire"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/glLogin" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editUserRegister"
             android:layout_width="0dp"
@@ -74,7 +60,7 @@
             app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lbText1">
+            app:layout_constraintTop_toBottomOf="@id/groupInfo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -110,18 +96,11 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:background="@drawable/border_color_button_radius"
+            android:background="@drawable/border_button"
             android:text="@string/lbRegisterSend"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editPasswordRegister" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/glLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.32" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
