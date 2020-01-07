@@ -4,7 +4,9 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProviders
@@ -59,14 +61,26 @@ class ActivityChapDownload : AppCompatActivity() {
             onBackPressed()
         }
         tvDelete.setOnClickListener {
-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 101)
-            } else {
-                for (i in viewModel.select) {
-                    repo.deleteImageWithId(viewModel.bookId, i)
-                }
-            }
+            if (viewModel.select.size == 0)
+                Toast.makeText(this, "Không có tập được chọn!", Toast.LENGTH_SHORT).show()
+            else {
+                val dialog = AlertDialog.Builder(this)
+                dialog.setTitle("Xóa các tập đã chọn ?")
+                    .setNegativeButton("Có") { _, _ ->
+                        if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 101)
+                        } else {
+                            for (i in viewModel.select) {
+                                repo.deleteImageWithId(viewModel.bookId, i)
+                            }
+                        }
+                    }
+                    .setPositiveButton("Không") { _, _ ->
 
+                    }
+                val display = dialog.create()
+                display.show()
+            }
         }
     }
 }
