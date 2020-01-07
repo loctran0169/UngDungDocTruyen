@@ -1,4 +1,5 @@
-# UngDungDocTruyen ![TRUYENQQ](https://truyenqq.com/template/frontend/images/logo.png)
+![TRUYENQQ](https://truyenqq.com/template/frontend/images/logo.png) 
+# UngDungDocTruyen 
 This app is developed for everyone who need read comics to save their time. Some highlights feature:
 - Search.
 - List comics
