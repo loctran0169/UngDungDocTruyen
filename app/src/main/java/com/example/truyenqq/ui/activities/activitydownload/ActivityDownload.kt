@@ -67,7 +67,8 @@ class ActivityDownload : AppCompatActivity() {
                                     )
                                 }
                             }
-                            viewModel.saveAndRunServiceDownload(viewModel.select)
+                            else
+                                viewModel.saveAndRunServiceDownload(viewModel.select)
                         })
                     Toast.makeText(this, "Đang tải vui lòng không thoát app", Toast.LENGTH_SHORT).show()
                 }
