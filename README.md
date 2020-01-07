@@ -22,4 +22,4 @@ Please make sure to update tests as appropriate.
 ## License
 ![UIT](https://www.uit.edu.vn/sites/vi/files/banner.png)
 ![SE UIT](http://cnpm.uit.edu.vn/templates/mimety/images/logo.png)
-![TRUYENQQ](https://truyenqq.com/images/logo.png)
+![TRUYENQQ](https://truyenqq.com/template/frontend/images/logo.png)
