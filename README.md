@@ -7,6 +7,8 @@ This app is developed for everyone who need read comics to save their time. Some
 - Category
 - Bookshelf
 - Comment, Like, Subscribe
+- Download
+- Release Calendar 
 - ....
 
 ## Technology
