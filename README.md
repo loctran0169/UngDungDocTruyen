@@ -53,7 +53,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Screenshoot
-![Screenshoot](story[1].jpg)
+![Screenshoot](https://zalo-file-dl2.zdn.vn/cb425a06dd9b31c5688a/4378265057397409331)
 
 ## License
 ![UIT](https://www.uit.edu.vn/sites/vi/files/banner.png)
