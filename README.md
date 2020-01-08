@@ -53,7 +53,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Screenshoot
-<img src="/screenshoot/main.jpg?raw=true" height="300"> <img src="/screenshoot/story.jpg?raw=true" height="300">
+<img src="/screenshoots/main.jpg?raw=true" height="300"> <img src="/screenshoots/story.jpg?raw=true" height="300">
 
 ## License
 ![UIT](https://www.uit.edu.vn/sites/vi/files/banner.png)
