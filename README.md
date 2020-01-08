@@ -52,6 +52,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+## Screenshoot
+![Screenshoot](story[1].jpg)
+
 ## License
 ![UIT](https://www.uit.edu.vn/sites/vi/files/banner.png)
 ![SE UIT](http://cnpm.uit.edu.vn/templates/mimety/images/logo.png)
