@@ -105,7 +105,7 @@ interface ApiHelper {
     @GET("book/manga")
     fun getListImage(
         @Header("token") token: String = token_api,
-        @Header("User-Agent") Accept: String = user_agnet,
+        //@Header("User-Agent") Accept: String = user_agnet,
         @Query("id") book_id: String,
         @Query("typeDetail") typeDetail: String? = "detail",
         @Query("order") chap: String?
