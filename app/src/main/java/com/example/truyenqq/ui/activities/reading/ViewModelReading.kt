@@ -68,7 +68,7 @@ class ViewModelReading(val bookId: String, var chap: String, val context: Contex
 
     fun setHistory() {
         compo.add(
-            apiManager.setHistory(bookId, user_id!!, chap)
+            apiManager.setHistory(bookId, user_id, chap)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

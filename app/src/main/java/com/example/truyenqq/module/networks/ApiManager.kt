@@ -99,7 +99,7 @@ class ApiManager {
         return buildRequest(_apiRestFull.getSchduleStory(date = _date))
     }
 
-    fun setHistory(_book_id: String, _user_id: String, _chap: String): Single<ResponseBody> {
+    fun setHistory(_book_id: String, _user_id: String?, _chap: String): Single<ResponseBody> {
         return buildRequest(
             _apiRestFull.setHistory(
                 book_id1 = _book_id,

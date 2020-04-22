@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.TransformationUtils
 import com.example.truyenqq.R
 import com.example.truyenqq.module.models.Slider
 import com.example.truyenqq.ui.activities.story.ActivityStory
@@ -24,6 +25,7 @@ class AdapterSliderView(val context: Context, var list : List<Slider>)  : Slider
         val p0 = list[position]
         Glide.with(context)
             .load(p0.image)
+            .centerCrop()
             .into(viewHolder.image)
         viewHolder.image.setOnClickListener {
             val intent1 = Intent(context, ActivityStory::class.java)
